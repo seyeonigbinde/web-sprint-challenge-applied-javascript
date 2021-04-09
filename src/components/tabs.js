@@ -36,6 +36,8 @@ const Tabs = (topics) => {
         techDiv.textContent = topics[2]
         console.log (tabDiv)
 
+        return tabDiv;
+
 }
 
 const tabsAppender = (selector) => {
@@ -49,15 +51,11 @@ const tabsAppender = (selector) => {
   axios
   .get("https://lambda-times-api.herokuapp.com/topics")
   .then((res) => {
-    // const newTab = Tabs(res.data.topics);
-    const newTab = res.data.topics;
     console.log(`Response Tab:`, res.data.topics);
-    newTab.forEach((topicTab) => {
-      const tabCard = Tabs(topicTab);
+    const tabCard = Tabs(res.data.topics);
       console.log(tabCard);
       tabDetails.appendChild(tabCard);
-    });
-   })
+    })
   .catch((err) => {
    
   });

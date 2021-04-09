@@ -40,9 +40,9 @@ const Card = (article) => {
           authorDiv.classList.add("author");
           imageDiv.classList.add("img-container");
 
-            headlineDiv.textContent = article.headline
-            image.src = article.authorPhoto
-            authorSpan.textContent = `By ${article.authorName}` 
+            headlineDiv.textContent = article["headline"]
+            image.src = article["authorPhoto"]
+            authorSpan.textContent = `By ${article["authorName"]}`
 
             cardDiv.addEventListener("click", (e) => {
              console.log (`${article.headline}`)
@@ -66,14 +66,16 @@ const cardAppender = (selector) => {
   .get("https://lambda-times-api.herokuapp.com/articles")
   .then((res) => {
     console.log(`Response Card:`, res.data.articles.javascript);
-    const newCard = Card(res.data.articles.javascript);
-    cardDetails.appendChild(newCard);
-    console.log(newCard);
+    const newCard = res.data.articles.javascript;
+    newCard.forEach((articleCard) => {
+      const cards = Card(articleCard);
+      console.log(cards);
+      cardDetails.appendChild(cards);
+    }) 
   })
   .catch((err) => {
    
   });
-  
 
 }
 

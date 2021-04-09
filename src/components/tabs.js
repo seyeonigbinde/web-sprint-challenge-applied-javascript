@@ -1,5 +1,6 @@
 
 import axios from "axios";
+import { topics } from "../mocks/data";
 const tabDetails = document.querySelector(".tabs-container");
 const Tabs = (topics) => {
   // TASK 3
@@ -30,10 +31,10 @@ const Tabs = (topics) => {
       bootDiv.classList.add("tab");
       techDiv.classList.add("tab");
 
-        javaDiv.textContent = `${topics[0]}`
-        bootDiv.textContent= `${topics[1]}`;
-        techDiv.textContent = `${topics[2]}`;
-        
+        javaDiv.textContent = topics[0]
+        bootDiv.textContent= topics[1]
+        techDiv.textContent = topics[2]
+        console.log (tabDiv)
 
 }
 
@@ -48,11 +49,15 @@ const tabsAppender = (selector) => {
   axios
   .get("https://lambda-times-api.herokuapp.com/topics")
   .then((res) => {
+    // const newTab = Tabs(res.data.topics);
+    const newTab = res.data.topics;
     console.log(`Response Tab:`, res.data.topics);
-    const newTab = Tabs(res.data.topics);
-    tabDetails.appendChild(newTab);
-    console.log(newTab);
-  })
+    newTab.forEach((topicTab) => {
+      const tabCard = Tabs(topicTab);
+      console.log(tabCard);
+      tabDetails.appendChild(tabCard);
+    });
+   })
   .catch((err) => {
    
   });

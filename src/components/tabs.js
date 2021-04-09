@@ -17,26 +17,29 @@ const Tabs = (topics) => {
   //   <div class="tab">technology</div>
   // </div>
   //
+  //Creating the Elements
   const tabDiv = document.createElement("div");
   const javaDiv = document.createElement("div");
   const bootDiv = document.createElement("div");
   const techDiv = document.createElement("div");
 
+  // Appending the Elements
     tabDiv.appendChild(javaDiv);
     tabDiv.appendChild(bootDiv);
     tabDiv.appendChild(techDiv);
-
+  
+  //Attaching the Classes to the Elements  
       tabDiv.classList.add("topics");
       javaDiv.classList.add("tab");
       bootDiv.classList.add("tab");
       techDiv.classList.add("tab");
 
+  //Attaching the contents to the Elements
         javaDiv.textContent = topics[0]
         bootDiv.textContent= topics[1]
         techDiv.textContent = topics[2]
-        console.log (tabDiv)
 
-        return tabDiv;
+  return tabDiv;
 
 }
 

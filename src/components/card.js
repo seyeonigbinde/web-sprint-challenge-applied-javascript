@@ -21,6 +21,7 @@ const Card = (article) => {
   //   </div>
   // </div>
   //
+  //Creating the Elements
       const cardDiv = document.createElement("div");
       const headlineDiv = document.createElement("div");
       const authorDiv = document.createElement("div");
@@ -28,24 +29,27 @@ const Card = (article) => {
       const image = document.createElement("img");
       const authorSpan = document.createElement("span");
 
+  // Appending the Elements
         cardDiv.appendChild(headlineDiv);
         cardDiv.appendChild(authorDiv);
         authorDiv.appendChild(imageDiv);
         imageDiv.appendChild(image);
         authorDiv.appendChild(authorSpan);
 
-        
+  //Attaching the Classes to the Elements         
           cardDiv.classList.add("card");
           headlineDiv.classList.add("headline");
           authorDiv.classList.add("author");
           imageDiv.classList.add("img-container");
 
+//Attaching the contents to the Elements
             headlineDiv.textContent = article["headline"]
             image.src = article["authorPhoto"]
             authorSpan.textContent = `By ${article["authorName"]}`
 
+//Adding the EventListener
             cardDiv.addEventListener("click", (e) => {
-             console.log (`${article.headline}`)
+             console.log (article["headline"])
             });
             
 return cardDiv;

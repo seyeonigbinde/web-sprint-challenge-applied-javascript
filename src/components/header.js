@@ -1,6 +1,6 @@
 
 const newsHeader = document.querySelector(".header-container");
-
+//Creating the array
 const headerData = (['Lambda Times', 'April 9, 2021', '29\u00B0']);
 
 const Header = ([title, date, temp]) => {
@@ -16,23 +16,28 @@ const Header = ([title, date, temp]) => {
   //    <span class="temp">{ temp }</span>
   //  </div>
   //
+//Creating the Elements
       const headerDiv = document.createElement("div");
       const dateSpan = document.createElement("span");
       const titleHeader = document.createElement("h1");
       const tempSpan = document.createElement("span");
 
+// Appending the Elements
         headerDiv.appendChild(dateSpan);
         headerDiv.appendChild(titleHeader);
         headerDiv.appendChild(tempSpan);
-        
+
+ //Attaching the Classes to the Elements       
           headerDiv.classList.add("header");
           dateSpan.classList.add("date");
           tempSpan.classList.add("temp");
-
+          
+//Attaching the contents to the Elements
             titleHeader.textContent = headerData[0];
             dateSpan.textContent = headerData[1];
             tempSpan.textContent = headerData[2];
-            console.log (headerData[0])
+            
+
 return headerDiv;
 }
 

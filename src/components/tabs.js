@@ -51,10 +51,10 @@ const tabsAppender = (selector) => {
   axios
   .get("https://lambda-times-api.herokuapp.com/topics")
   .then((res) => {
-    console.log(`Response Tab:`, res.data.topics);
-    const tabCard = Tabs(res.data.topics);
-      console.log(tabCard);
-      tabDetails.appendChild(tabCard);
+      console.log(`Response Tab:`, res.data.topics);
+      const tabCard = Tabs(res.data.topics);
+        console.log(tabCard);
+        tabDetails.appendChild(tabCard);
     })
   .catch((err) => {
    

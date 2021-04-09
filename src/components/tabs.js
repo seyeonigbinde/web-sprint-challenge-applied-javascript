@@ -1,3 +1,4 @@
+import axios from "axios";
 const Tabs = (topics) => {
   // TASK 3
   // ---------------------
@@ -13,6 +14,27 @@ const Tabs = (topics) => {
   //   <div class="tab">technology</div>
   // </div>
   //
+  const tabDiv = document.createElement("div");
+  const javaDiv = document.createElement("div");
+  const bootDiv = document.createElement("div");
+  const techDiv = document.createElement("div");
+
+    tabDiv.appendChild(javaDiv);
+    tabDiv.appendChild(bootDiv);
+    tabDiv.appendChild(techDiv);
+
+      tabDiv.classList.add("topics");
+      javaDiv.classList.add("tab");
+      bootDiv.classList.add("tab");
+      techDiv.classList.add("tab");
+
+        javaDiv.textContent = `${topics.javascript}`
+        bootDiv.textContent= `${topics.bootstrap}`;
+        techDiv.textContent = `${topics.technology}`;
+
+
+
+
 }
 
 const tabsAppender = (selector) => {
@@ -24,5 +46,7 @@ const tabsAppender = (selector) => {
   // Append the tabs to the element in the DOM that matches the selector passed to the function.
   //
 }
+
+
 
 export { Tabs, tabsAppender }

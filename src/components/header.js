@@ -1,3 +1,7 @@
+const newsHeader = document.querySelector(".header-container");
+
+const paperData = (['Lambda Time', 'April 9, 20121', '29']);
+
 const Header = (title, date, temp) => {
   // TASK 1
   // ---------------------
@@ -19,7 +23,7 @@ const Header = (title, date, temp) => {
         headerDiv.appendChild(dateSpan);
         headerDiv.appendChild(titleHeader);
         headerDiv.appendChild(tempSpan);
-
+        
           headerDiv.classList.add("header");
           dateSpan.classList.add("date");
           tempSpan.classList.add("temp");
@@ -27,9 +31,10 @@ const Header = (title, date, temp) => {
             dateSpan.textContent = `${date}`;
             titleHeader.textContent = `${title}`;
             tempSpan.textContent = `${temp}`;
-
+            
 return headerDiv;
 }
+
 
 
 
@@ -40,8 +45,12 @@ const headerAppender = (selector) => {
   // It should create a header using the Header component above, passing arguments of your choosing.
   // It should append the header to the element in the DOM that matches the given selector.
   //
-  const newsHeader = document.querySelector(".header-container");
+  
 
 }
+paperData.forEach((panelObj) => {
+  const headerDiv = makePanel(panelObj);
+  return newsHeader.appendChild(headerDiv);
+});
 
 export { Header, headerAppender }
